@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_bloc/cubit/todo_cubit.dart';
+import 'package:todo_bloc/models/todo_model.dart';
 
 class TodoList extends StatelessWidget {
   const TodoList({super.key});
@@ -9,7 +12,14 @@ class TodoList extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Todo List'),
       ),
-      // body: ,
+      body: BlocBuilder<TodoCubit,List<Todo>>(
+        builder: (context, state) {
+          return ListView.builder(
+            itemCount: state.length,
+            itemBuilder: (context, index) {},
+          );
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pushNamed(context, '/add-todo');
