@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_bloc/models/todo_model.dart';
@@ -17,5 +19,20 @@ class TodoCubit extends Cubit<List<Todo>> {
     /// like if new state and old state is same emit does not get executed.
     ///  does nothing if the [state] being emitted is equal to the current [state].
     emit([...state, todo]);
+  }
+
+
+/// we can override these methods to add extra benefits to our cubit.
+/// usefull........... 
+  @override
+  void onChange(Change<List<Todo>> change) {
+    super.onChange(change);
+    print(change);
+  }
+
+  @override
+  void onError(Object error, StackTrace stackTrace) {
+    super.onError(error, stackTrace);
+    print(error);
   }
 }
