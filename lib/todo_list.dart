@@ -17,9 +17,7 @@ class TodoList extends StatelessWidget {
           return ListView.builder(
             itemCount: state.length,
             itemBuilder: (context, index) {
-              
               final todo = state[index];
-
               return ListTile(
                 title: Text(todo.name),
               );
